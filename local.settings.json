@@ -1,0 +1,13 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=rubifunction;AccountKey=Kqe8tGhtbmnS7wWVp7uUoFBJbWXx1Zz7qx8hEnnNOkxaeU7l/POxuxt617G/GIxnnS8gfwHT/QIO+ASt/zraoQ==;EndpointSuffix=core.windows.net",
+    "FUNCTIONS_WORKER_RUNTIME": "python",
+    "AzureWebJobsFeatureFlags": "EnableWorkerIndexing",
+    "FUNCTIONS_EXTENSION_VERSION": "~4",
+    "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING": "DefaultEndpointsProtocol=https;AccountName=rubifunction;AccountKey=Kqe8tGhtbmnS7wWVp7uUoFBJbWXx1Zz7qx8hEnnNOkxaeU7l/POxuxt617G/GIxnnS8gfwHT/QIO+ASt/zraoQ==;EndpointSuffix=core.windows.net",
+    "WEBSITE_CONTENTSHARE": "rubi-functionc50e2e",
+    "APPINSIGHTS_INSTRUMENTATIONKEY": "7e9f3674-1579-4651-939f-31832b3214a1",
+    "SqlConnectionString": "Server=tcp:mysqlserver-rubi.database.windows.net,1433;Initial Catalog=mySampleDatabase;Persist Security Info=False;User ID=azureuser;Password=Secret123!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
+  }
+}
