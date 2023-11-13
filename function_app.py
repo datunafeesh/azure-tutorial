@@ -9,7 +9,8 @@ app = func.FunctionApp()
 @app.route(route="hello", auth_level=func.AuthLevel.ANONYMOUS)
 @app.generic_output_binding(arg_name="toDoItems", type="sql", CommandText="dbo.ToDo", ConnectionStringSetting="SqlConnectionString",
     data_type=DataType.STRING)
-def test_function(req: func.HttpRequest, toDoItems: func.Out[func.SqlRow]) -> func.HttpResponse:
+@app.queue_output(arg_name="outputItems", queue_name="outqueue", connection="AzureWebJobsStorage")
+def test_function(req: func.HttpRequest, toDoItems: func.Out[func.SqlRow], outputItems: func.Out[func.QueueMessage]) -> func.HttpResponse:
      logging.info('Python HTTP trigger function processed a request.')
      name = req.params.get('name')
      if not name:
@@ -22,6 +23,7 @@ def test_function(req: func.HttpRequest, toDoItems: func.Out[func.SqlRow]) -> fu
 
      if name:
         toDoItems.set(func.SqlRow({"Id": str(uuid.uuid4()), "title": name, "completed": False, "url": ""}))
+        outputItems.set(name)
         return func.HttpResponse(f"Hello {name}!")
      else:
         return func.HttpResponse(
